@@ -1,0 +1,20 @@
+{
+  "model_version": "1.0.0",
+  "evaluation_date": "2024-03-25",
+  "performance_metrics": {
+    "accuracy": 0.92,
+    "precision": 0.89,
+    "recall": 0.85,
+    "f1": 0.87,
+    "fairness_metrics": {
+      "disparate_impact": 1.08,
+      "statistical_parity_difference": -0.03
+    }
+  },
+  "training_parameters": {
+    "algorithm": "Two-Tower Neural Network",
+    "batch_size": 256,
+    "epochs": 50,
+    "learning_rate": 0.001
+  }
+}
