@@ -1,21 +1,19 @@
-Here's your clean GitHub-formatted README with proper line breaks and minimal formatting:
-
 ```
 # Fair Job Recommender System
 
 ---
 
-## Key Features  
-| Feature | Implementation | Tools Used |  
-|---------|---------------|------------|  
-| Recommendation Engine | Two-tower neural network with hybrid embeddings | PyTorch, TF-IDF |  
-| Explainable AI | Real-time SHAP explanations for recommendations | SHAP, Lime |  
-| Bias Detection | Demographic parity checks on recommendations | AIF360, Fairlearn |  
-| Scalable Deployment | Containerized microservice with auto-scaling | Docker, AWS ECS |  
+## Key Features
+| Feature | Implementation | Tools Used |
+|---------|---------------|------------|
+| Recommendation Engine | Two-tower neural network with hybrid embeddings | PyTorch, TF-IDF |
+| Explainable AI | Real-time SHAP explanations for recommendations | SHAP, Lime |
+| Bias Detection | Demographic parity checks on recommendations | AIF360, Fairlearn |
+| Scalable Deployment | Containerized microservice with auto-scaling | Docker, AWS ECS |
 
 ---
 
-## Project Structure  
+## Project Structure
 ```
 .
 ├── api/                  # FastAPI app (Dockerized)
@@ -35,38 +33,38 @@ Here's your clean GitHub-formatted README with proper line breaks and minimal fo
 
 ---
 
-## Quick Start  
+## Quick Start
 
-### Installation  
+### Installation
 ```
-git clone https://github.com/Syed-Nayeem77/Fair-Job-Recommender-System.git  
-cd Fair-Job-Recommender-System  
-pip install -r requirements.txt  
-```
-
-### Local Deployment  
-```
-docker build -f api/Dockerfile -t job-recommender .  
-docker run -p 8000:8000 job-recommender  
-```
-```
-curl -X POST http://localhost:8000/recommend -H "Content-Type: application/json" -d '{"skills": "python sql"}'  
+git clone https://github.com/Syed-Nayeem77/Fair-Job-Recommender-System.git
+cd Fair-Job-Recommender-System
+pip install -r requirements.txt
 ```
 
-### Cloud Deployment  
+### Local Deployment
 ```
-cd terraform  
-terraform init  
-terraform apply -auto-approve  
+docker build -f api/Dockerfile -t job-recommender .
+docker run -p 8000:8000 job-recommender
+```
+```
+curl -X POST http://localhost:8000/recommend -H "Content-Type: application/json" -d '{"skills": "python sql"}'
+```
+
+### Cloud Deployment
+```
+cd terraform
+terraform init
+terraform apply -auto-approve
 ```
 
 ---
 
-## Performance Dashboard  
+## Performance Dashboard
 
-![Metrics Dashboard](assets/images/metrics.png)  
+![Metrics Dashboard](assets/images/metrics.png)
 
-Latest Model Metrics:  
+Latest Model Metrics:
 ```
 {
   "accuracy": 0.92,
@@ -80,15 +78,14 @@ Latest Model Metrics:
 
 ---
 
-## Maintenance  
+## Maintenance
 
-### Retraining  
+### Retraining
 ```
-python model/train.py --new-data data/candidates.csv  
+python model/train.py --new-data data/candidates.csv
 ```
 
-### Monitoring  
+### Monitoring
 ```
-python monitoring/drift_detection.py  
-```
+python monitoring/drift_detection.py
 ```
