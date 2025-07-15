@@ -11,19 +11,19 @@
 ##  Project Structure
 
 .
-├── api/                  # FastAPI app (Dockerized)
-│   ├── main.py           # API endpoints
-│   └── Dockerfile        # Container config
-├── config/               # Centralized configs
-│   └── settings.py       # Environment variables
-├── model/                # Core ML logic
-│   ├── two_tower_model.py # Neural recommender
-│   └── fairness_check.py # Bias audits
-├── models/               # Versioned model binaries
-│   └── model_v1_0_0.pkl  # Serialized production model
-└── monitoring/           # Performance tracking
-    ├── drift_report.html # Evidently reports
-    └── metrics.json     # Historical metrics
+├── api/                  # FastAPI app (Dockerized)/
+│   ├── main.py           # API endpoints/
+│   └── Dockerfile        # Container config/
+├── config/               # Centralized configs/
+│   └── settings.py       # Environment variables/
+├── model/                # Core ML logic/
+│   ├── two_tower_model.py # Neural recommender/
+│   └── fairness_check.py # Bias audits/
+├── models/               # Versioned model binaries/
+│   └── model_v1_0_0.pkl  # Serialized production model/
+└── monitoring/           # Performance tracking/
+    ├── drift_report.html # Evidently reports/
+    └── metrics.json     # Historical metrics/
 
  Quick Start
 Installation
