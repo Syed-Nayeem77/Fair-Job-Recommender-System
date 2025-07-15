@@ -142,6 +142,17 @@ fair-job-recommender/
 <img width="1918" height="1022" alt="fairness_check2 png" src="https://github.com/user-attachments/assets/f4987f24-6895-4a25-bee2-ee34a5c88d96" />
 
 
+## Testing  
+```bash
+# Install test dependencies
+pip install pytest pytest-cov
+
+# Run all tests
+pytest tests/ --cov=model --cov-report=term-missing
+
+# Expected output:
+# 6 passed, 100% coverage
+
 
 
 ###### Author
