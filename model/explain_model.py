@@ -1,19 +1,26 @@
 import shap
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
+import numpy as np
+from sklearn.pipeline import Pipeline
 
-def explain_candidate_skills(candidate_profile, job_profile):
-    job_df = pd.DataFrame([job_profile])  # this is correct
-
-    tfidf = TfidfVectorizer()
-    X = tfidf.fit_transform(job_df['required_skills'])
-    y = job_df.get('label', [1]*len(job_df))
-
-    model = LogisticRegression().fit(X, y)
-
-    explainer = shap.Explainer(model, X)
-    candidate_vector = tfidf.transform([candidate_profile['skills']])
-    shap_values = explainer(candidate_vector)
-
-    return shap_values, tfidf.get_feature_names_out()
+class RecommendationExplainer:
+    def __init__(self, model: Pipeline):
+        self.model = model
+        self.explainer = shap.Explainer(model.named_steps['clf'])
+        
+    def explain(self, candidate: dict, job_desc: str) -> dict:
+        """Generate SHAP explanations for a recommendation"""
+        # Preprocess input
+        X = self.model.named_steps['preprocessor'].transform([candidate])
+        
+        # SHAP values
+        shap_values = self.explainer.shap_values(X)
+        
+        # Feature names
+        features = self.model.named_steps['preprocessor'].get_feature_names_out()
+        
+        return {
+            "shap_values": shap_values[0].tolist(),
+            "feature_names": features.tolist(),
+            "base_value": float(self.explainer.expected_value),
+            "sample_prediction": float(self.model.predict_proba(X)[0][1])
+        }
